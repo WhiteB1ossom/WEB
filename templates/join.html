@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="" method="POST">{% csrf_token %}
+        <input id="name" name = "user_name" type="text" placeholder="이름 입력"/>
+        <input id="id" name = "user_id" type="text" placeholder="아이디 입력"/>
+        <button type="button" id="checkDuplicateBtn">아이디 중복 확인</button>
+        <input id="pwd" name = "user_password" type="text" placeholder="비밀번호 입력"/>
+        <input id="submit" type="submit">
+
+        <input type='radio' name='category' value=0 checked/>학부생
+{#        <input type='radio' name='fruits' value='banana'/>꿈청주대인#}
+
+    </form>
+     <script>
+        document.getElementById('checkDuplicateBtn').addEventListener('click', function (){
+            const userId = document.getElementById('id').value;
+            console.log(userId)
+            fetch('/check_user_id/', {
+                method: 'POST',
+                headers:{
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                // URLSearchParams은 HTML 폼에서 전송하는 폼 데이터 형식 (application/x-www-form-urlencoded) 으로 바꿔주는 객체
+                body: new URLSearchParams({
+                    'user_id': userId
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.exists) {
+                        console.log(data.exists)
+                        console.log("이미 사용중인 아읻;")
+                    }else{
+                        console.log(data.exists)
+                        console.log("사용 가능한 아이디")
+            }
+                })
+        })
+    </script>
+</body>
+</html>
