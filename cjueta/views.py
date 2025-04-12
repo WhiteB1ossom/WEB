@@ -19,13 +19,25 @@ def login_check(request):
         userpwd = request.POST['user_password']
         user = UserModel.objects.filter(user_id=userid, user_password=userpwd).first()
 
+        context = {}
+
+        if request.method == 'POST':
+            userid = request.POST['user_id']
+            userpwd = request.POST['user_password']
+
+            if not userid:
+                context['NotError'] = "ID"
+            if not userpwd:
+                context['NotError'] = "PWD"
+            return render(request, "login.html", context)
+
         if user:
             request.session['user'] = user.user_id # 세션에 로그인 정보 저장
             return JsonResponse({'message': '로그인 성공!'})
         else:
             return JsonResponse({'message': '로그인 실패!'})
 
-
+    return render(request, "login.html")
 
 def join(request):
     if (request.method == 'GET'):
