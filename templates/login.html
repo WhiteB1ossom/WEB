@@ -8,16 +8,9 @@
 <body>
     <h1>로그인</h1>
     <form action="" method="POST">{% csrf_token %}
-        <input id="id" name="user_id" type="text" placeholder="아이디 입력"/>
-        <input id="pwd" name="user_password" type="text" placeholder="비밀번호 입력"/>
-
-        {% if NotError == 'ID' %}
-            <p style="color: red;">아이디를 입력해주세요.</p>
-        {% elif NotError == 'PWD' %}
-            <p style="color: red;">비밀번호를 입력해주세요.</p>
-        {% endif %}
-
-        <button type="button" id="checkLogin">로그인</button>
+        <input id="id" name="user_id" type="text" required placeholder="아이디 입력"/>
+        <input id="pwd" name="user_password" type="password" required placeholder="비밀번호 입력"/>
+        <button type="submit" id="checkLogin">로그인</button>
 
         <input type='radio' name="categoru" value=0 checked/>학부생
     {#    <input type='radio' name='' value=1 />신입생#}
@@ -25,6 +18,7 @@
     <A href="/login/new"> 회원가입 </A>
     <script>
         document.getElementById("checkLogin").addEventListener('click',function(){
+
             const userId = document.getElementById("id").value;
             const userpwd = document.getElementById("pwd").value;
             // const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
