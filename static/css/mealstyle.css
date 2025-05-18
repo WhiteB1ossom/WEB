@@ -1,0 +1,189 @@
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #f5f5f5;
+  overflow-x: hidden;
+}
+
+/* 사용자 박스 */
+.user-box {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+/* 메뉴 */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1vw;
+  padding: 1vh 2vw;
+  background-color: #f5f5f5;
+}
+
+.menu-button {
+  padding: 0.7em 1.2em;
+  border: 2px solid #80b9f0;
+  border-radius: 20px;
+  background-color: white;
+  color: #1057a6;
+  font-weight: bold;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-button:hover {
+  background-color: #1057a6;
+  color: white;
+}
+
+.menu-button.active {
+  background-color: #80b9f0;
+  color: white;
+}
+
+/* 메인 영역 */
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5vw;
+  padding: 3vh 3vw;
+}
+
+/* 오늘의 식단 */
+.today-meal-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2vw;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
+  width: 100%;
+}
+
+.restaurant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 공통 박스 스타일 */
+.col1, .col2, .col3 {
+  width: clamp(140px, 25vw, 180px);
+  height: clamp(180px, 30vh, 240px);
+  background-color: #D8EAFE;
+  border: 2px solid #7CAFE1;
+  border-radius: 10px;
+  text-align: center;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+/* 서브 섹션 */
+.sub {
+  width: 100%;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 4vh;
+}
+
+.sub h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
+}
+
+/* 룰렛 */
+.roulette-canvas {
+  margin-top: 1vh;
+  width: 60vw;
+  height: 60vw;
+  max-width: 250px;      /* 기존 400px → 250px */
+  aspect-ratio: 1 / 1;
+  display: block;
+}
+
+#roulette-canvas {
+  display: block;
+  margin: 0 auto;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}
+
+
+.roulette-button {
+  z-index: 1000;
+  background: #febf00;
+  margin-top: 1rem;
+  padding: 0.8rem 1.8rem;
+  border: none;
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.roulette-button:active {
+  background: #444;
+  color: #f9f9f9;
+}
+
+/* 메뉴 섹션 */
+#menu {
+  width: 100%;
+  min-height: 60vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+}
+
+#menu::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 22;
+
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 12px solid #1057a6;
+}
+
+input {
+  width: 200px;
+  height: 32px;
+  font-size: 12px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+}
+
+/* PDF 캔버스 스타일 */
+#pdf-render {
+  width: 100%;
+  height: auto;
+  border: 1px solid #333;
+  display: block;
+  border-radius: 8px;
+  flex-shrink: 0;
+}

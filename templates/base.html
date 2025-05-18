@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>캠퍼스</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+</head>
+<body>
+    <div class="container">
+        <!-- 네비게이션 바 -->
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{% static 'images/logo.png' %}" alt="로고" class="logo-img">
+                캠퍼즈
+            </div>
+
+            <div class="nav-wrapper">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#" class="nav-item" data-page="map">지도</a></li>
+                    <li><a href="#" class="nav-item" data-page="food">식당</a></li>
+                    <li><a href="#" class="nav-item" data-page="board">학교소통</a></li>
+                    <li><a href="#" class="nav-item" data-page="info">학교정보</a></li>
+                </ul>
+                <div id="highlightBar" class="highlight-bar"></div>
+            </div>
+
+            <div class="user-info">
+                <span class="user-name">000님</span>
+                <a href="#" class="logout-button">로그아웃</a>
+            </div>
+        </nav>
+
+        <!-- 콘텐츠 영역 -->
+        <div id="content-area">
+            {% include "map/map.html" %}
+        </div>
+    </div>
+
+    <script src="{% static 'javascript/main.js' %}"></script>
+</body>
+</html>

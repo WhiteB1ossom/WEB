@@ -1,0 +1,33 @@
+<a href="/account/main?tab=board">← 학교소통으로 돌아가기</a>
+<h2>{{ detail }}</h2>
+<form method="post">
+    {% csrf_token %}
+    <div>
+        <label for="{{ form.title.id_for_label }}">제목:</label><br>
+        {{ form.title }}<br>
+        {% if form.title.errors %}
+            <div style="color: red;">{{ form.title.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div style="margin-top: 10px;">
+        <label for="{{ form.content.id_for_label }}">내용:</label><br>
+        {{ form.content }}<br>
+        {% if form.content.errors %}
+            <div style="color: red;">{{ form.content.errors }}</div>
+        {% endif %}
+    </div>
+    <button type="submit">작성</button>
+</form>
+<hr>
+
+<div>
+    {% for post in posts %}
+        <div>
+            <strong>{{ post.author.username }}</strong> | {{ post.created_date|date:"Y-m-d H:i" }}<br>
+            <strong><a href="{% url 'board:post_detail' post.pk %}">{{ post.title }}</a></strong><br>
+            {{ post.content|truncatechars:100 }}
+            <hr>
+        </div>
+    {% endfor %}
+</div>

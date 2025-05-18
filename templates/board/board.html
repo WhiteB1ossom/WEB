@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>버튼으로 페이지 이동</title>
+    <link rel="stylesheet" href="{% static 'css/board/board_base.css' %}">
+</head>
+<body>
+    <div class="container">
+    <!-- 왼쪽 메뉴 -->
+    <div class="sidebar">
+        <a href="{% url 'board:detail' 'hot게시판' %}" class="sidebar-button">HOT 게시판</a>
+        <a href="{% url 'board:detail' '비밀게시판' %}" class="sidebar-button">비밀 게시판</a>
+        <a href="{% url 'board:detail' '스터디모집게시판' %}" class="sidebar-button">스터디 모집 게시판</a>
+        <a href="{% url 'board:detail' '예비청대인' %}" class="sidebar-button">예비 청대인</a>
+      <div class="banner">
+        <img src="{% static 'images/banner.png' %}" alt="배너 이미지">
+      </div>
+    </div>
+
+    <!-- 게시판 목록 -->
+    <div class="boards">
+      {% for board in boards %}
+      <div class="board">
+        <h3>{{ board.title }}</h3>
+        <ul>
+          {% for post in board.posts %}
+          <li>{{ post.title }} <span>{{ post.timestamp }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+/* 레이아웃 기본 */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* 상단 바 */
+.navbar {
+    height: clamp(50px, 6vh, 70px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f7f9fa;
+    padding: clamp(6px, 1.5vh, 12px) clamp(20px, 4vw, 60px);
+    border-bottom: 1px solid #ddd;
+}
+
+/* 로고 */
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: clamp(18px, 5vw, 30px);
+    color: #4a4a4a;
+}
+
+.logo-img {
+    height: clamp(20px, 5vw, 50px);
+    margin-right: clamp(4px, 3vw, 15px);
+}
+
+/* 메뉴 전체 감싸는 wrapper */
+.nav-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* 메뉴 리스트 */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: clamp(10px, 10vw, 100px);
+    margin: 0;
+    padding: 0;
+}
+
+/* 메뉴 항목 */
+.nav-item {
+    text-decoration: none;
+    color: #333;
+    font-size: clamp(14px, 3vw, 25px);
+    font-weight: bold;
+    position: relative;
+    padding: clamp(6px, 1.2vh, 12px) 0;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: #007BFF;
+}
+
+/* 하이라이트 바 */
+.highlight-bar {
+    position: absolute;
+    height: 6px;
+    background-color: #007bff;
+    transition: all 0.3s ease;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    z-index: 0;
+}
+
+/* 사용자 정보 */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-name {
+    font-size: clamp(14px, 1.2vw, 18px);
+    color: #333;
+}
+
+.logout-button {
+    padding: clamp(6px, 1vw, 10px) clamp(10px, 2vw, 16px);
+    background-color: #cce5ff;
+    border: none;
+    color: #333;
+    border-radius: 6px;
+    font-size: clamp(12px, 1vw, 14px);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.logout-button:hover {
+    background-color: #b2d8ff;
+}
+
+/* 콘텐츠 영역 */
+#content-area {
+    flex-grow: 1;
+    overflow-y: hidden;
+    padding: clamp(12px, 3vw, 40px);
+    box-sizing: border-box;
+}

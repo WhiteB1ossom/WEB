@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>map캠퍼스</title>
+  <link rel="stylesheet" href="{% static 'css/mealstyle.css' %}" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.min.js"></script>
+</head>
+<body>
+  <div class="main-container">
+    <section class="meal today-meal">
+      <h2>오늘의 학식</h2>
+      <div class="today-meal-grid">
+        <div class="restaurant">
+          <div class="restaurant-title">학식 메뉴 (PDF 뷰어)</div>
+          <canvas id="pdf-render"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="roulette">
+      <div class="sub">
+        <h2>오늘 점심 뭐 먹지?</h2>
+        <div id="menu">
+          <canvas id="roulette-canvas" width="600" height="600"></canvas>
+          <button class="roulette-button" onclick="rotate()">돌려돌려 돌림판</button>
+          <div id="addDiv">
+            <input type="text" id="menuAdd" />
+            <button class="roulette-button" onclick="add()">메뉴 추가</button>
+          </div>
+        </div>
+        <script src="{% static 'javascript/roulette.js' %}"></script>
+        <script src="{% static 'javascript/pdfviewer.js' %}"></script>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
