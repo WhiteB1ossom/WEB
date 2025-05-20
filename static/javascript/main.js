@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (page === "food") {
                     loadScript("/static/javascript/roulette.js");
+                    loadScript("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.min.js");
+                    loadScript("/static/javascript/pdfviewer.js");
                 }
             })
             .catch(err => {
