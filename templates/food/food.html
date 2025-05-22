@@ -24,11 +24,14 @@
         <h2>오늘 점심 뭐 먹지?</h2>
         <div id="menu">
           <canvas id="roulette-canvas" width="600" height="600"></canvas>
-          <button class="roulette-button" onclick="rotate()">돌려돌려 돌림판</button>
           <div id="addDiv">
             <input type="text" id="menuAdd" />
             <button class="roulette-button" onclick="add()">메뉴 추가</button>
           </div>
+            <div class="roulette-controls">
+              <button class="roulette-button" onclick="rotate()">돌려돌려 돌림판</button>
+              <button class="roulette-button" onclick="resetWheel()">초기화</button>
+            </div>
         </div>
         <script src="{% static 'javascript/roulette.js' %}"></script>
         <script src="{% static 'javascript/pdfviewer.js' %}"></script>

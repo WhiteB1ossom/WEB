@@ -1,6 +1,16 @@
 const $c = document.querySelector("#roulette-canvas");
 const ctx = $c.getContext("2d");
 
+function resetWheel() { //초기화 함수
+  $c.style.transform = 'initial';
+  $c.style.transition = 'initial';
+
+  product.length = 0;
+  colors.length = 0;
+
+  newMake();
+}
+
 function getPastelColor() {
   const r = Math.floor((Math.random() * 127) + 127); // 127~254
   const g = Math.floor((Math.random() * 127) + 127);
